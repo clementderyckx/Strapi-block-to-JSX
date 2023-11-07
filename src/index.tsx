@@ -1,1 +1,0 @@
-export { default as Strapiblock } from './components/Strapiblock/Strapiblock';
