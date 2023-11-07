@@ -1,0 +1,237 @@
+{ 
+    "content": [
+        {
+            "type": "heading",
+            "level": 1,
+            "children": [
+                {
+                    "text": "Title of the first article",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "An introduction for the first article",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "type": "heading",
+            "level": 2,
+            "children": [
+                {
+                    "text": "Heading 2 for bulleted list",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "type": "list",
+            "format": "unordered",
+            "children": [
+                {
+                    "type": "list-item",
+                    "children": [
+                        {
+                            "text": "bulleted list item1",
+                            "type": "text"
+                        }
+                    ]
+                },
+                {
+                    "type": "list-item",
+                    "children": [
+                        {
+                            "text": "Bulleted list item2",
+                            "type": "text"
+                        }
+                    ]
+                },
+                {
+                    "type": "list-item",
+                    "children": [
+                        {
+                            "text": "Bullteted list item 3",
+                            "type": "text"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "heading",
+            "level": 3,
+            "children": [
+                {
+                    "text": "Heading 3 for numbered list",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "type": "list",
+            "format": "ordered",
+            "children": [
+                {
+                    "type": "list-item",
+                    "children": [
+                        {
+                            "text": "Num list item 1",
+                            "type": "text"
+                        }
+                    ]
+                },
+                {
+                    "type": "list-item",
+                    "children": [
+                        {
+                            "text": "Num list item 2",
+                            "type": "text"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "image",
+            "image": {
+                "ext": ".jpg",
+                "url": "http://localhost:1337/uploads/crystalweed_cannabis_f_Mitd_Rh_Or_c_unsplash_3a653d4874.jpg",
+                "hash": "crystalweed_cannabis_f_Mitd_Rh_Or_c_unsplash_3a653d4874",
+                "mime": "image/jpeg",
+                "name": "crystalweed-cannabis-fMitdRhOr_c-unsplash.jpg",
+                "size": 6554.47,
+                "width": 9504,
+                "height": 6336,
+                "caption": null,
+                "formats": {
+                    "large": {
+                        "ext": ".jpg",
+                        "url": "/uploads/large_crystalweed_cannabis_f_Mitd_Rh_Or_c_unsplash_3a653d4874.jpg",
+                        "hash": "large_crystalweed_cannabis_f_Mitd_Rh_Or_c_unsplash_3a653d4874",
+                        "mime": "image/jpeg",
+                        "name": "large_crystalweed-cannabis-fMitdRhOr_c-unsplash.jpg",
+                        "path": null,
+                        "size": 46.28,
+                        "width": 1000,
+                        "height": 667
+                    },
+                    "small": {
+                        "ext": ".jpg",
+                        "url": "/uploads/small_crystalweed_cannabis_f_Mitd_Rh_Or_c_unsplash_3a653d4874.jpg",
+                        "hash": "small_crystalweed_cannabis_f_Mitd_Rh_Or_c_unsplash_3a653d4874",
+                        "mime": "image/jpeg",
+                        "name": "small_crystalweed-cannabis-fMitdRhOr_c-unsplash.jpg",
+                        "path": null,
+                        "size": 16.67,
+                        "width": 500,
+                        "height": 333
+                    },
+                    "medium": {
+                        "ext": ".jpg",
+                        "url": "/uploads/medium_crystalweed_cannabis_f_Mitd_Rh_Or_c_unsplash_3a653d4874.jpg",
+                        "hash": "medium_crystalweed_cannabis_f_Mitd_Rh_Or_c_unsplash_3a653d4874",
+                        "mime": "image/jpeg",
+                        "name": "medium_crystalweed-cannabis-fMitdRhOr_c-unsplash.jpg",
+                        "path": null,
+                        "size": 30.09,
+                        "width": 750,
+                        "height": 500
+                    },
+                    "thumbnail": {
+                        "ext": ".jpg",
+                        "url": "/uploads/thumbnail_crystalweed_cannabis_f_Mitd_Rh_Or_c_unsplash_3a653d4874.jpg",
+                        "hash": "thumbnail_crystalweed_cannabis_f_Mitd_Rh_Or_c_unsplash_3a653d4874",
+                        "mime": "image/jpeg",
+                        "name": "thumbnail_crystalweed-cannabis-fMitdRhOr_c-unsplash.jpg",
+                        "path": null,
+                        "size": 5.76,
+                        "width": 234,
+                        "height": 156
+                    }
+                },
+                "provider": "local",
+                "createdAt": "2023-11-03T11:39:17.311Z",
+                "updatedAt": "2023-11-03T11:39:17.311Z",
+                "previewUrl": null,
+                "alternativeText": "crystalweed-cannabis-fMitdRhOr_c-unsplash.jpg",
+                "provider_metadata": null
+            },
+            "children": [
+                {
+                    "text": "",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "type": "list",
+            "format": "ordered",
+            "children": [
+                {
+                    "type": "list-item",
+                    "children": [
+                        {
+                            "text": "",
+                            "type": "text"
+                        },
+                        {
+                            "url": "https://google.com",
+                            "type": "link",
+                            "children": [
+                                {
+                                    "text": "link to google",
+                                    "type": "text"
+                                }
+                            ]
+                        },
+                        {
+                            "text": "",
+                            "type": "text"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
