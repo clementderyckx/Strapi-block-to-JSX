@@ -1,6 +1,10 @@
 export interface StrapiTextNode {
     text: string;
     type: 'text';
+    underline?: boolean,
+    strikethrough?: boolean,
+    bold?: boolean,
+    italic?: boolean,
 }
   
 export interface StrapiLinkNode {

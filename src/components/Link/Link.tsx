@@ -1,3 +1,4 @@
+import { Typography } from '../..';
 import { setClassname } from '../../lib/classnames.lib';
 import type { StrapiBlockToJsxComponentProps } from '../../types/components';
 import './Link.css';
@@ -30,7 +31,7 @@ export function Link({ config, block }: StrapiBlockToJsxComponentProps) {
       className={className}
       style={style}
     >
-      {block.children[0].text}
+      <Typography block={block.children[0]} config={config}/>
     </a>
   )
 }

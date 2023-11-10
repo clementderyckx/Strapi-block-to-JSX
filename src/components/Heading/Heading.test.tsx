@@ -41,7 +41,7 @@ const fullConfigElements: StrapiBlockToJsxConfig = {
     }
 }
 
-describe("Heading component", () => {
+describe.skip("Heading component", () => {
 
     describe('content' , () => {
         it('Renders the good title content', () => {

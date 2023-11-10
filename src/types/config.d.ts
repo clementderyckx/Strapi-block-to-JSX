@@ -4,20 +4,12 @@ export type StrapiBlockToJsxConfig = {
     environment?: "react" | "next",
     classNames?: ClassNamesConfig,
     generatedClassNames?: boolean,
-    elementsConfig?: {
-        heading?: ElementConfig,
-        image?: ElementConfig,
-        list?: ElementConfig,
-        listItem?: ElementConfig,
-        paragraph?: ElementConfig,
-        text?: ElementConfig,
-        link?: LinkConfig,
-        vspacing?: {
-            className?: string,
-        },
-    }
+    elementsConfig?: ElementsConfig
 }
 
+/**
+ * Classnames configuration
+ */
 export type ClassNamesConfig = {
     link?: string,
     image?: string,
@@ -25,7 +17,24 @@ export type ClassNamesConfig = {
     listItem?: string,
     heading?: string,
     paragraph?: string,
-    vspacing?: string
+    vspacing?: string,
+    typography?: TypographyConfig<string>
+}
+/**
+ * Elements configuration
+ */
+export type ElementsConfig = {
+    heading?: ElementConfig,
+    image?: ElementConfig,
+    list?: ElementConfig,
+    listItem?: ElementConfig,
+    paragraph?: ElementConfig,
+    text?: ElementConfig,
+    link?: LinkConfig,
+    vspacing?: {
+        className?: string,
+    },
+    typography?: TypographyConfig<ElementConfig>
 }
 
 export type ElementConfig = {
@@ -38,5 +47,11 @@ export type LinkConfig = ElementConfig & {
     color?: string,
 }
 
+export type TypographyConfig<T> = {
+    bold?: T,
+    italic?: T,
+    underline?: T,
+    strikethrough?: T,
+}
 
 export type BlockType = keyof ClassNamesConfig;

@@ -1,0 +1,15 @@
+.strapi-btjsx-bold-text {
+  font-weight: 700;
+}
+
+.strapi-btjsx-italic-text {
+  font-style: italic;
+}
+
+.strapi-btjsx-strikethrough-text {
+  text-decoration: line-through;
+}
+
+.strapi-btjsx-underlined-text {
+  text-decoration: underline;
+}
