@@ -9,7 +9,13 @@ type StrapiBlockToJsxConfig = {
         listItem?: string,
         heading?: string,
         paragraph?: string,
-        vspacing?: string
+        vspacing?: string,
+        typography?: {
+            bold: string,
+            italic: string,
+            underline: string,
+            strikethrough: string,
+        }
     },
     generatedClassNames?: boolean,
     elementsConfig?: {
@@ -23,6 +29,12 @@ type StrapiBlockToJsxConfig = {
         vspacing?: {
             className?: string,
         },
+        typography?: {
+            bold: ElementConfig,
+            italic: ElementConfig,
+            underline: ElementConfig,
+            strikethrough: ElementConfig
+        }
     }
 }
 
@@ -107,3 +119,60 @@ In this library, it generates a VSpacing component which is define as :
 ```
 It is a simple div containing an empty character (`&nbsp;`) with a default height of 30px and width set to 100%.
 You can override the default height and width by using the generated classname or by setting your own classname to vspacing on the configuration object.
+
+## Styled text
+In the Strapi CMS you are able to customize the text displayed by setting some properties like bold, italic, strikethrough and underline.<br>
+It is also available by default in the library via the `<Typography/>` component which is used to display all the text.
+The component simply adds a `<span>` element included a classname.
+- `.strapi-btjsx-bold-text` for bold text
+- `.strapi-btjsx-italic-text` for italic text
+- `.strapi-btjsx-strikethrough-text` for strikethrough text
+- `.strapi-btjsx-underlined-text` for underlined text
+  
+You can customize them classnames by overriding the style on your css using the generated classes or by setting your own classname in the configuration object.<br>
+The typography has a different structure to set you own classes. It uses them properties for setting classnames in each cases.<br>
+NB: Like other components, if you don't specify generatedClassNames to false, it will add the classnames you specify in the object. <br>
+For examples: 
+```typescript
+const config = {
+    generatedClassNames: false,
+    elementsConfig: {
+        typography: {
+            bold: {
+                className: 'bold-config-class'
+            },
+            italic: {
+                className: 'italic-config-class'
+            },
+            underline: {
+                className: 'underline-config-class'
+            },
+            strikethrough: {
+                className: 'strikethrough-config-class'
+            },
+        }
+    }
+};
+<Strapiblock block={block} config={config}>
+/*
+* Bold text will end up with span bold-config-class
+* Italic text will end up with span italic-config-class
+* Underlined text will end up with span underline-config-class
+* Strikethrough text will end up with span strikethrough-config-class
+*/
+```
+It is also working the same way by using classnames in the configuration object
+```typescript
+const config = {
+    generatedClassNames: false,
+    classNames: {
+        typography: {
+            bold: 'bold-config-class',
+            italic: 'italic-config-class',
+            underline: 'underline-config-class',
+            strikethrough: 'strikethrough-config-class',
+        }
+    }
+};
+<Strapiblock block={block} config={config}>
+```
