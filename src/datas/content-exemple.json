@@ -232,6 +232,52 @@
                     ]
                 }
             ]
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "",
+                    "type": "text"
+                },
+                {
+                    "url": "https://strapi.io",
+                    "type": "link",
+                    "children": [
+                        {
+                            "text": "a link in a paragraph",
+                            "type": "text"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "children": [
+                {
+                    "text": "Here is a link ",
+                    "type": "text"
+                },
+                {
+                    "url": "https://strapi.io",
+                    "type": "link",
+                    "children": [
+                        {
+                            "text": "a link in a paragraph",
+                            "type": "text"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "type": "text"
+                }
+            ]
         }
     ]
 }

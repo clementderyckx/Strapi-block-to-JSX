@@ -1,16 +1,11 @@
-import Heading from "../Heading/Heading";
+import { Heading } from "../Heading/Heading";
+import type { StrapiBlockToJsxComponentProps } from "../../types/components";
 
-type Props = {
-  config?: StrapiBlockToJsxConfig,
-  block: StrapiBlock
-}
 
-export function Strapiblock({ config, block }: Props) {
-  const environment = config?.environment;
-  const classNames = config?.classNames;
+export function Strapiblock({ config, block }: StrapiBlockToJsxComponentProps) {
 
   if(block.type === 'heading') 
-    return <Heading block={block} classNames={classNames}/>
+    return <Heading block={block} config={config}/>
 
   else if(block.type === "paragraph") {
     if(block.children[0].type === "text")

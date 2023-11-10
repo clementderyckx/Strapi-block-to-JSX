@@ -1,3 +1,4 @@
+
 module.exports = {
     preset: 'ts-jest',
     testEnvironment: 'jest-environment-jsdom',
@@ -9,14 +10,14 @@ module.exports = {
       '^.+\\.(ts|tsx)$': 'ts-jest',
     },
     moduleNameMapper: {
-      // si vous utilisez des modules CSS ou d'autres importations de fichiers (par exemple, des images)
-      '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
-      '\\.(gif|png|jpg|jpeg|svg)$': '<rootDir>/__mocks__/fileMock.js',
+      '\\.(css|less|scss|sass)$': '<rootDir>/src/__mocks__/fileMock.js',
+      '\\.(gif|png|jpg|jpeg|svg)$': '<rootDir>/src/__mocks__/fileMock.js',
+      '^@/(.*)$': '<rootDir>/src/$1', 
     },
     globals: {
       'ts-jest': {
         tsconfig: 'tsconfig.json',
       },
     },
-  };
   
+  };

@@ -1,6 +1,8 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import Heading from './Heading';
+import { Heading } from './Heading';
+import type { StrapiBlock } from '../../types/strapi';
+import type { StrapiBlockToJsxConfig } from '../../types/config';
 
 const headingDatas: StrapiBlock = {
     type: "heading",
@@ -13,13 +15,30 @@ const headingDatas: StrapiBlock = {
     ]
 }
 
-const classNames: ClassNamesConfig = {
-    heading: "heading-classname"
-}
-
 const config: StrapiBlockToJsxConfig = {
     environment: 'react',
-    classNames
+    classNames: {
+        heading: "heading-classname-config"
+    }
+}
+
+const configElements: StrapiBlockToJsxConfig = {
+    elementsConfig: {
+        heading: {
+            className: 'heading-classname-from-elementsConfig'
+        }
+    }
+}
+
+const fullConfigElements: StrapiBlockToJsxConfig = {
+    classNames: {
+        heading: "heading-classname-config"
+    },
+    elementsConfig: {
+        heading: {
+            className: 'heading-classname-from-elementsConfig'
+        }
+    }
 }
 
 describe("Heading component", () => {
@@ -35,25 +54,53 @@ describe("Heading component", () => {
     })
 
 
-    describe.skip('Classnames', () => {
-        it('Has the className set by ClassNames object', () => {
-            const { container } = render(<div> <Heading block={headingDatas} classNames={classNames}/></div>)
+    describe('Classnames', () => {
+    
+        it('Has the className set by Config object', () => {
+            const { container } = render(
+            <div>
+                <Heading 
+                    block={headingDatas} 
+                    config={config}
+                />
+            </div>)
 
-            const element = container.querySelector(".heading-classname");
+            const element = container.querySelector(".heading-classname-config");
 
             expect(element).toBeInTheDocument()
         })
-    
-        it('Has the className set by Config object', () => {
-            const { container } = render(<div><Heading block={headingDatas} config={config}/></div>)
 
-            const element = container.querySelector(".heading-classname");
+
+        it('Has the className set by config.elementsConfig object', () => {
+            const { container } = render(
+            <div>
+                <Heading 
+                    block={headingDatas} 
+                    config={configElements}
+                />
+            </div>)
+
+            const element = container.querySelector('.heading-classname-from-elementsConfig');
 
             expect(element).toBeInTheDocument()
+        })
+
+        it('Has the className set by both Config & classNames object', () => {
+            const { container } = render(
+            <div>
+                <Heading 
+                    block={headingDatas} 
+                    config={fullConfigElements}
+                />
+            </div>)
+
+            const element = container.querySelector(".heading-classname-config");
+
+            expect(element?.className).toBe('strapi-btjsx strapi-btjsx-heading1 heading-classname-config heading-classname-from-elementsConfig')
         })
     })
 
-    describe.skip('Tag', () => {
+    describe('Check if Tag is correctly sets', () => {
         it('Should render as an H1', () => {
             headingDatas.level = 1;
             const { container } = render(<div><Heading block={headingDatas} /></div>);

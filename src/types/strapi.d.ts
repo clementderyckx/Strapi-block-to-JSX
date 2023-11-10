@@ -1,37 +1,37 @@
-interface StrapiTextNode {
+export interface StrapiTextNode {
     text: string;
     type: 'text';
 }
   
-interface StrapiLinkNode {
+export interface StrapiLinkNode {
     url: string;
     type: 'link';
     children: StrapiTextNode[];
 }
   
-interface StrapiHeadingBlock {
+export interface StrapiHeadingBlock {
     type: 'heading';
     level: 1 | 2 | 3 | 4 | 5 | 6; 
     children: StrapiTextNode[];
 }
   
-interface StrapiParagraphBlock {
+export interface StrapiParagraphBlock {
     type: 'paragraph';
     children: (StrapiTextNode | StrapiLinkNode)[]; // Assuming paragraphs can contain text and links
 }
   
-interface StrapiListItemBlock {
+export interface StrapiListItemBlock {
     type: 'list-item';
     children: (StrapiTextNode | StrapiLinkNode)[]; // List items can contain text and links
 }
   
-interface StrapiListBlock {
+export interface StrapiListBlock {
     type: 'list';
     format: 'ordered' | 'unordered';
     children: StrapiListItemBlock[];
 }
   
-interface StrapiImageFormat {
+export interface StrapiImageFormat {
     ext: string;
     url: string;
     hash: string;
@@ -42,7 +42,7 @@ interface StrapiImageFormat {
     height: number;
 }
   
-interface StrapiImageBlock {
+export interface StrapiImageBlock {
     type: 'image';
     image: {
       ext: string;
@@ -70,8 +70,8 @@ interface StrapiImageBlock {
     children: StrapiTextNode[];
 }
   
-type StrapiBlock = StrapiHeadingBlock | StrapiParagraphBlock | StrapiListBlock | StrapiImageBlock;
+export type StrapiBlock = StrapiHeadingBlock | StrapiParagraphBlock | StrapiListBlock | StrapiImageBlock | StrapiLinkNode;
   
-interface StrapiContentStructure {
-    content: StrapiContentBlock[];
+export interface StrapiContentStructure {
+    content: StrapiBlock[];
 }
