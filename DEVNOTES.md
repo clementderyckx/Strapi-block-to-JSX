@@ -1,9 +1,3 @@
-## Typography
-Must take take of typography that can be styled with attributes
-```typescript
-type Text = {
-    underline?: boolean,
-    strikethrough?: boolean,
-    bold?: boolean
-}
-```
+## Articles
+Add a config option to sets if articles does have banner or not
+

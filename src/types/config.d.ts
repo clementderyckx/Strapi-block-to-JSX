@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 
 export type StrapiBlockToJsxConfig = {
     environment?: "react" | "next",
+    cmsBaseUrl?: string,
     classNames?: ClassNamesConfig,
     generatedClassNames?: boolean,
     elementsConfig?: ElementsConfig
@@ -32,7 +33,7 @@ export type ClassNamesConfig = {
  */
 export type ElementsConfig = {
     heading?: ElementConfig,
-    image?: ElementConfig,
+    image?: ImageConfig,
     list?: ListConfig,
     listItem?: {
         ordered?: ElementConfig,
@@ -77,6 +78,16 @@ export type TypographyConfig<T> = {
     italic?: T,
     underline?: T,
     strikethrough?: T,
+}
+
+export type ImageConfig = ElementConfig & {
+    title?: boolean,
+    loading?: "lazy" | "eager",
+    size?: "default" | "large" | "small" | "medium" | "thumbnail",
+    width?: number,
+    height?: number,
+    crossorigin?: "anonymous" | "use-credentials",
+    decoding?: "sync" | "async" | "auto",
 }
 
 export type BlockType = keyof ClassNamesConfig;

@@ -107,16 +107,22 @@ const config = {
 // Will result with classname "heading-class heading-classname-from-elementsConfig"
 ```
 
-## Links
+## Components customization
+### Links
 ```typescript
 // Generates here the documentation on how links are managed in the documentation.
 ```
 
-## List & List items
-### Overview
+### Images
+```
+Specify in the docs that this is not recommended to change the default loading attributes
+```
+
+### List & List items
+#### Overview
 This section covers the implementation of ordered (ol) and unordered (ul) lists in Strapi CMS, and how they are rendered into JSX components using our library.
 
-### Styling and Classes
+#### Styling and Classes
 Strapi CMS disposes of 2 types of lists: ordered (ol) and unordered (ul).<br>
 Both types of list container use the global class name `strapi-btjsx` and `strapi-btjsx-list`, for global list customization. Additionally, specific classes are assigned following the type, desbribed bellow.<br>
 It is the same for list items elements with the global class name `strapi-btjsx-list-item`.
@@ -127,7 +133,7 @@ It is the same for list items elements with the global class name `strapi-btjsx-
   - `strapi-btjsx-ul` for the list container (`<ul>`)
   - `strapi-btjsx-ul-list-item` for the list items elements (`<li>`)
 
-### Customization
+#### Customization
 For high customization purpose, the config choice has been to differentiate both for list elements and also list items elements.<br>
 As every component in this library, you can customize it by the elementsConfig property and the classNames property in the configuration object.<br>
 Configuration example for both ordered and unordered lists:
@@ -171,15 +177,15 @@ const listConfig = {
 ```
 Reminder: None of the configuration for any components is needed for a basic render.
 
-### Elements properties
+#### Elements properties
 In the configuration object, you can set various HTML attributes for both `<ol>` and `<ul>` elements. This allows further customization of list behavior and appearance.
 
-#### Ordered list
+##### Ordered list
 - `type`: Sets the numbering style of the `<ol>` HTML element. Default is set to `"1"`
 - `start`: Specifies the starting number for the list. Default is set to `1`
 - `reversed`: When set to true, reverses the numbering order of the list. Default is set to `false`
 For more information of these attributes, see the [MDN documentation for ordered lists](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol)
-#### Unordered list
+##### Unordered list
 - `type`: Sets the bullet style of the `<ul>` element, such as `"circle"`, `"square"`, or `"disc"`.
 For more information of these attributes, see the [MDN documentation for unordered lists](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul)
 
@@ -203,7 +209,7 @@ const listConfig = {
 ```
 In this example, the unordered list will use circle bullets, and the ordered list will start from 3, be reversed, and use uppercase alphabetic numbering.
 
-## Empty spaces
+### Empty spaces
 In the Strapi CMS, when you add a blank line for spacing, Strapi generates an empty paragraph block.
 In this library, it generates a VSpacing component which is define as :
 ```typescript
@@ -212,7 +218,7 @@ In this library, it generates a VSpacing component which is define as :
 It is a simple div containing an empty character (`&nbsp;`) with a default height of 30px and width set to 100%.
 You can override the default height and width by using the generated classname or by setting your own classname to vspacing on the configuration object.
 
-## Styled text
+### Styled text
 In the Strapi CMS you are able to customize the text displayed by setting some properties like bold, italic, strikethrough and underline.<br>
 It is also available by default in the library via the `<Typography/>` component which is used to display all the text.
 The component simply adds a `<span>` element included a classname.
@@ -253,7 +259,7 @@ const config = {
 * Strikethrough text will end up with span strikethrough-config-class
 */
 ```
-It is also working the same way by using classnames in the configuration object
+It is also working the same way by using classnames in the configuration object:
 ```typescript
 const config = {
     generatedClassNames: false,
@@ -268,4 +274,5 @@ const config = {
 };
 <Strapiblock block={block} config={config}>
 ```
+
 

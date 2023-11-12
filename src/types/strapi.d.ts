@@ -44,6 +44,7 @@ export interface StrapiImageFormat {
     size: number;
     width: number;
     height: number;
+    path: string | null;
 }
   
 export interface StrapiImageBlock {
