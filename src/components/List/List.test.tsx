@@ -13,7 +13,7 @@ const listConfig: StrapiBlockToJsxConfig = {
             },
             ordered: {
                 start: 1,
-                reverse: false,
+                reversed: false,
                 type: 'A',
                 className: "ordered-config",
             }

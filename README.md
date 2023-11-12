@@ -60,13 +60,14 @@ const config: StrapiBlockToJsxConfig = {
 
 ### `generatedClassNames` property
 Set to false to not use library classnames on components.
+
 ### `classNames` property
 This config property allows you to set custom classnames for different block type.
 
 ## Classnames
 ### Included Classnames
 Every components has the classname `strapi-btjsx`. <br>
-In addition, each component has a specific class name following this pattern:<br>
+In addition, each component has a specific class name prefixed with `strapi-btjsx` following this pattern:<br>
 `strapi-btjsx-{componentName}{specification}`<br>
 This behavior can be disabled in the configuration object by setting the property generatedClassNames to false.
 
@@ -110,6 +111,97 @@ const config = {
 ```typescript
 // Generates here the documentation on how links are managed in the documentation.
 ```
+
+## List & List items
+### Overview
+This section covers the implementation of ordered (ol) and unordered (ul) lists in Strapi CMS, and how they are rendered into JSX components using our library.
+
+### Styling and Classes
+Strapi CMS disposes of 2 types of lists: ordered (ol) and unordered (ul).<br>
+Both types of list container use the global class name `strapi-btjsx` and `strapi-btjsx-list`, for global list customization. Additionally, specific classes are assigned following the type, desbribed bellow.<br>
+It is the same for list items elements with the global class name `strapi-btjsx-list-item`.
+- Ordered lists: 
+  - `strapi-btjsx-ol` for the list container (`<ol>`)
+  - `strapi-btjsx-ol-list-item` for the list items elements (`<li>`)
+- Unordered lists: 
+  - `strapi-btjsx-ul` for the list container (`<ul>`)
+  - `strapi-btjsx-ul-list-item` for the list items elements (`<li>`)
+
+### Customization
+For high customization purpose, the config choice has been to differentiate both for list elements and also list items elements.<br>
+As every component in this library, you can customize it by the elementsConfig property and the classNames property in the configuration object.<br>
+Configuration example for both ordered and unordered lists:
+```typescript
+const listConfig = {
+    generatedClassNames: false, // If you want to disable the library classNames
+    elementsConfig: {
+        // Configuration for list types
+        list: {
+            unordered : {
+                className: "unordered-config",
+            },
+            ordered: {
+                className: "ordered-config",
+            }
+        },
+        // Configuration for list items
+        listItem: {
+            ordered: {
+                className: "ordered-item-className"
+            },
+            unordered: {
+                className: "unordered-item-className"
+            },
+        }
+    },
+    // Additional classNames configuration
+    classNames: {
+        list: {
+            ordered: "ordered-className",
+            unordered: "unordered-className",
+        },
+        listItem: {
+            ordered: "ordered-item-className",
+            unordered: "unordered-item-className",
+        }
+    }
+}
+// Component will be used inside as
+<List block={block} config={listConfig} />
+```
+Reminder: None of the configuration for any components is needed for a basic render.
+
+### Elements properties
+In the configuration object, you can set various HTML attributes for both `<ol>` and `<ul>` elements. This allows further customization of list behavior and appearance.
+
+#### Ordered list
+- `type`: Sets the numbering style of the `<ol>` HTML element. Default is set to `"1"`
+- `start`: Specifies the starting number for the list. Default is set to `1`
+- `reversed`: When set to true, reverses the numbering order of the list. Default is set to `false`
+For more information of these attributes, see the [MDN documentation for ordered lists](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol)
+#### Unordered list
+- `type`: Sets the bullet style of the `<ul>` element, such as `"circle"`, `"square"`, or `"disc"`.
+For more information of these attributes, see the [MDN documentation for unordered lists](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul)
+
+Example
+```typescript
+const listConfig = {
+    elementsConfig: {
+        // Configuration for list types
+        list: {
+            unordered : {
+                type: "circle",
+            },
+            ordered: {
+                start: 3 // Starts the numbering from 3,
+                reversed: true // Reversed the numbering order,
+                type: 'A' // Uses uppercase alphabetic numbering,
+            }
+        }
+    }
+}
+```
+In this example, the unordered list will use circle bullets, and the ordered list will start from 3, be reversed, and use uppercase alphabetic numbering.
 
 ## Empty spaces
 In the Strapi CMS, when you add a blank line for spacing, Strapi generates an empty paragraph block.
@@ -176,3 +268,4 @@ const config = {
 };
 <Strapiblock block={block} config={config}>
 ```
+

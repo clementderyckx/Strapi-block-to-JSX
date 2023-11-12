@@ -19,13 +19,13 @@ export function List({ config, block }: StrapiBlockToJsxComponentProps) {
   /**
    * Ordered list config
    */
-  let olReverse = false;
+  let olReversed = false;
   let olStart = 1;
   let olType: OrderedListType = "1";
   if(listType === "ordered"){
     if(config?.elementsConfig?.list?.ordered){
-      const { reverse, start, type } = config.elementsConfig.list.ordered;
-      if(reverse) olReverse = reverse;
+      const { reversed, start, type } = config.elementsConfig.list.ordered;
+      if(reversed) olReversed = reversed;
       if(start) olStart = start;
       if(type) olType = type;
     }
@@ -44,7 +44,7 @@ export function List({ config, block }: StrapiBlockToJsxComponentProps) {
   return (listType === "ordered") ? (
     <ol 
       type={olType} 
-      reversed={olReverse} 
+      reversed={olReversed} 
       start={olStart}
       className={className}
     >

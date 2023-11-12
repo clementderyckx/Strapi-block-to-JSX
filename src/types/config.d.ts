@@ -62,7 +62,7 @@ export type ListConfig = {
     ordered?: ElementConfig & {
         type?: OrderedListType,
         start?: number,
-        reverse?: boolean,
+        reversed?: boolean,
     },
     unordered?: ElementConfig & {
         type?: UnorderedListType,
