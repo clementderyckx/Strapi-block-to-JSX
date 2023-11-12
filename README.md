@@ -67,7 +67,7 @@ This config property allows you to set custom classnames for different block typ
 ### Included Classnames
 Every components has the classname `strapi-btjsx`. <br>
 In addition, each component has a specific class name following this pattern:<br>
-`strapi-btjsx-{componentName}{specification}`<br
+`strapi-btjsx-{componentName}{specification}`<br>
 This behavior can be disabled in the configuration object by setting the property generatedClassNames to false.
 
 ```typescript

@@ -1,4 +1,6 @@
-export const ulTest = {
+import { StrapiBlock } from "../../types/strapi";
+
+export const ulTest: StrapiBlock = {
     type: "list",
     format: "unordered",
     children: [
@@ -24,15 +26,15 @@ export const ulTest = {
             type: "list-item",
             children: [
                 {
-                    "text": "Bullteted list item 3",
-                    "type": "text"
+                    text: "Bullteted list item 3",
+                    type: "text"
                 }
             ]
         }
     ]
 }
 
-export const olTest = {
+export const olTest: StrapiBlock = {
     type: "list",
     format: "ordered",
     children: [
@@ -53,6 +55,23 @@ export const olTest = {
                     type: "text"
                 }
             ]
-        }
+        },
+        {
+            type: "list-item",
+            children: [
+                {
+                    text: "Num list item 3",
+                    type: "text"
+                }
+            ]
+        },        {
+            type: "list-item",
+            children: [
+                {
+                    text: "Num list item 4",
+                    type: "text"
+                }
+            ]
+        },
     ]
 }

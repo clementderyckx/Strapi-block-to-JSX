@@ -74,7 +74,7 @@ export interface StrapiImageBlock {
     children: StrapiTextNode[];
 }
   
-export type StrapiBlock = StrapiHeadingBlock | StrapiParagraphBlock | StrapiListBlock | StrapiImageBlock | StrapiLinkNode;
+export type StrapiBlock = StrapiHeadingBlock | StrapiListItemBlock | StrapiParagraphBlock | StrapiListBlock | StrapiImageBlock | StrapiLinkNode | StrapiTextNode;
   
 export interface StrapiContentStructure {
     content: StrapiBlock[];

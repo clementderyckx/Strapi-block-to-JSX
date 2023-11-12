@@ -1,3 +1,4 @@
+import { useId } from "react";
 import type { StrapiBlockToJsxComponentProps } from "../../types/components";
 import { setClassname } from "../../lib/classnames.lib";
 import VSpacing from "../VSpacing/VSpacing";
@@ -26,13 +27,12 @@ export function Paragraph({ block, config }: StrapiBlockToJsxComponentProps) {
 
   return (
     <p className={className}>
-      {content.map((block, index) => {
-        if(block.type === "text") return <Typography block={block} config={config} />
+      {content.map( block => {
+        if(block.type === "text") 
+          return <Typography block={block} config={config} key={useId()} />
+          
         else if(block.type === "link") {
-          /**
-           * Change it to a Link component to be created
-           */
-          return <Link block={block} config={config} key={index}/>
+          return <Link block={block} config={config} key={useId()}/>
         }
       })}
     </p>
