@@ -28,17 +28,6 @@ const testImageBlock: StrapiBlock = {
                 width: 1000,
                 height: 667
             },
-            small: {
-                ext: ".jpg",
-                url: "/uploads/small_crystalweed_cannabis_f_Mitd_Rh_Or_c_unsplash_3a653d4874.jpg",
-                hash: "small_crystalweed_cannabis_f_Mitd_Rh_Or_c_unsplash_3a653d4874",
-                mime: "image/jpeg",
-                name: "small_crystalweed-cannabis-fMitdRhOr_c-unsplash.jpg",
-                path: null,
-                size: 16.67,
-                width: 500,
-                height: 333
-            },
             medium: {
                 ext: ".jpg",
                 url: "/uploads/medium_crystalweed_cannabis_f_Mitd_Rh_Or_c_unsplash_3a653d4874.jpg",
@@ -49,6 +38,17 @@ const testImageBlock: StrapiBlock = {
                 size: 30.09,
                 width: 750,
                 height: 500
+            },
+            small: {
+                ext: ".jpg",
+                url: "/uploads/small_crystalweed_cannabis_f_Mitd_Rh_Or_c_unsplash_3a653d4874.jpg",
+                hash: "small_crystalweed_cannabis_f_Mitd_Rh_Or_c_unsplash_3a653d4874",
+                mime: "image/jpeg",
+                name: "small_crystalweed-cannabis-fMitdRhOr_c-unsplash.jpg",
+                path: null,
+                size: 16.67,
+                width: 500,
+                height: 333
             },
             thumbnail: {
                 ext: ".jpg",
@@ -165,7 +165,7 @@ describe("Image component", () => {
             render(<Image block={testImageBlock} config={config}/>)
     
             const image = screen.getByAltText("A super alt text for my image");
-            expect(image).toHaveAttribute("srcset", "http://localhost:1337/uploads/large_crystalweed_cannabis_f_Mitd_Rh_Or_c_unsplash_3a653d4874.jpg 1000w, http://localhost:1337/uploads/medium_crystalweed_cannabis_f_Mitd_Rh_Or_c_unsplash_3a653d4874.jpg 750w, http://localhost:1337/uploads/small_crystalweed_cannabis_f_Mitd_Rh_Or_c_unsplash_3a653d4874.jpg 500w")
+            expect(image).toHaveAttribute("srcset", "http://localhost:1337/uploads/large_crystalweed_cannabis_f_Mitd_Rh_Or_c_unsplash_3a653d4874.jpg 1000w, http://localhost:1337/uploads/medium_crystalweed_cannabis_f_Mitd_Rh_Or_c_unsplash_3a653d4874.jpg 750w, http://localhost:1337/uploads/small_crystalweed_cannabis_f_Mitd_Rh_Or_c_unsplash_3a653d4874.jpg 500w, http://localhost:1337/uploads/thumbnail_crystalweed_cannabis_f_Mitd_Rh_Or_c_unsplash_3a653d4874.jpg 234w")
         })
     
         it("Image has default cross-origin attribute set to anonymous", () => {
@@ -206,6 +206,7 @@ describe("Image component", () => {
 
             expect(image).toHaveAttribute("decoding", "sync");
         })
+
     })
 
     describe('Image classnames', () => { 

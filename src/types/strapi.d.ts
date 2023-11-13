@@ -49,31 +49,33 @@ export interface StrapiImageFormat {
   
 export interface StrapiImageBlock {
     type: 'image';
-    image: {
-      ext: string;
-      url: string;
-      hash: string;
-      mime: string;
-      name: string;
-      size: number;
-      width: number;
-      height: number;
-      caption: string | null;
-      formats: {
-        large?: StrapiImageFormat;
-        small?: StrapiImageFormat;
-        medium?: StrapiImageFormat;
-        thumbnail: StrapiImageFormat;
-      };
-      provider: string;
-      createdAt: string;
-      updatedAt: string;
-      previewUrl: string | null;
-      alternativeText: string;
-      provider_metadata: any | null;
-    };
+    image: StrapiImageBlockProps;
     children: StrapiTextNode[];
 }
+
+export type StrapiImageBlockProps = {
+    ext: string;
+    url: string;
+    hash: string;
+    mime: string;
+    name: string;
+    size: number;
+    width: number;
+    height: number;
+    caption: string | null;
+    formats: {
+      large?: StrapiImageFormat;
+      medium?: StrapiImageFormat;
+      small?: StrapiImageFormat;
+      thumbnail: StrapiImageFormat;
+    };
+    provider: string;
+    createdAt: string;
+    updatedAt: string;
+    previewUrl: string | null;
+    alternativeText: string;
+    provider_metadata: any | null;
+  }
   
 export type StrapiBlock = StrapiHeadingBlock | StrapiListItemBlock | StrapiParagraphBlock | StrapiListBlock | StrapiImageBlock | StrapiLinkNode | StrapiTextNode;
   
