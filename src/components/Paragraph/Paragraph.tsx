@@ -1,8 +1,9 @@
 import { useId } from "react";
-import type { StrapiBlockToJsxComponentProps } from "../../types/components";
+import { VSpacing } from "../VSpacing/VSpacing";
+import { Link } from "../Link/Link";
+import { Typography } from "../Typography/Typography";
 import { setClassname } from "../../lib/classnames.lib";
-import VSpacing from "../VSpacing/VSpacing";
-import { Link, Typography } from "../..";
+import type { StrapiBlockToJsxComponentProps } from "../../types/components";
 
 
 /**

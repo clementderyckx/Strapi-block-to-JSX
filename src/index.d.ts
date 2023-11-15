@@ -1,17 +1,18 @@
 /**
  * Components
  */
-export { Strapiblock } from './components/Strapiblock/Strapiblock';
 export { Heading } from './components/Heading/Heading';
-export { Paragraph } from './components/Paragraph/Paragraph';
 export { Image } from './components/Image/Image';
 export { Link } from './components/Link/Link';
 export { List } from './components/List/List';
+export { Paragraph } from './components/Paragraph/Paragraph';
+export { Strapiblock } from './components/Strapiblock/Strapiblock';
 export { Typography } from './components/Typography/Typography';
+export { VSpacing } from './components/VSpacing/VSpacing';
 
 /**
  * Types
  */
-export * from './types/config';
-export * from './types/strapi';
-export * from './types/components';
+export type * from './types/config';
+export type * from './types/strapi';
+export type * from './types/components';

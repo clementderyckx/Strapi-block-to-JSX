@@ -83,7 +83,7 @@ export type TypographyConfig<T> = {
 export type ImageConfig = ElementConfig & {
     title?: boolean,
     loading?: "lazy" | "eager",
-    size?: "default" | "large" | "small" | "medium" | "thumbnail",
+    size?: "original" | "large" | "small" | "medium" | "thumbnail",
     width?: number,
     height?: number,
     crossorigin?: "anonymous" | "use-credentials",

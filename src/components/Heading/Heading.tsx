@@ -12,8 +12,7 @@ export function Heading({ block, config }: Props) {
     /**
      * ClassName statement
      */
-    let className = (config?.generatedClassNames === false) ? '' : `strapi-btjsx-heading${block.level}`;
-    className = setClassname(className, "heading", config);
+    const className = setClassname(`strapi-btjsx-heading strapi-btjsx-heading${block.level}`, "heading", config);
 
     /**
      * Content of the block

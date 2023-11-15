@@ -1,7 +1,10 @@
+import { StrapiBlockToJsxConfig } from '../../types/config';
+import { setClassname } from '../../lib/classnames.lib';
 import './VSpacing.css';
 
-export default function VSpacing() {
+export function VSpacing( { config } :{config?: StrapiBlockToJsxConfig}) {
+  const className = setClassname("strapi-btjsx-vspacing","vspacing", config);
   return (
-    <div className="strapi-btjsx-vspacing">&nbsp;</div>
+    <div className={className}>&nbsp;</div>
   )
 }

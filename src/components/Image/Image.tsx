@@ -9,26 +9,30 @@ export function Image({ block, config }: StrapiBlockToJsxComponentProps) {
   /**
   * Choose the right block to use
   */
-  let imageFormatBlock: StrapiImageFormat | StrapiImageBlockProps = block.image;
-  if(config?.elementsConfig?.image?.size && config?.elementsConfig?.image?.size !== "default"){
+  let imageFormatBlock: StrapiImageFormat | StrapiImageBlockProps = block.image.formats.large || block.image;;
+  if(config?.elementsConfig?.image?.size && config?.elementsConfig?.image?.size !== "original"){
     const size = config.elementsConfig.image.size;
     const imageFormats = block.image.formats;
     if(imageFormats[size] && imageFormats[size]?.url) {
       imageFormatBlock = imageFormats[size] as StrapiImageFormat;
     }
+  } else if(config?.elementsConfig?.image?.size === "original"){
+    imageFormatBlock = block.image;
   }
+  
 
   /**
    * ImageUrl
    */
   let cmsBaseUrl = config?.cmsBaseUrl ? config.cmsBaseUrl : "/";
   if(cmsBaseUrl.endsWith('/')) cmsBaseUrl = cmsBaseUrl.substring(0, cmsBaseUrl.length - 1);
-  const url = `${cmsBaseUrl}${imageFormatBlock.url}`
-  const srcSetAttr = Object.keys(block.image.formats).map(imgFormat => {
+  // SRC
+  const url = `${cmsBaseUrl}${imageFormatBlock.url}`;
+  // SRCSET
+  const srcSetAttr = Object.keys(block.image.formats).map( imgFormat => {
     const formatBlock = block.image.formats[imgFormat as keyof typeof block.image.formats];
-    if(formatBlock && formatBlock.url && formatBlock.width)
-      return `${cmsBaseUrl}${formatBlock.url} ${formatBlock.width}w` 
-  }).join(', ');
+    return (formatBlock && formatBlock.url && formatBlock.width) ? `${cmsBaseUrl}${formatBlock.url} ${formatBlock.width}w` : '';
+  } ).join(', ');
 
   /**
    * AlternativeText & title
@@ -58,6 +62,7 @@ export function Image({ block, config }: StrapiBlockToJsxComponentProps) {
         src={url}
         width={imageFormatBlock.width}
         height={imageFormatBlock.height}
+        title={imgTitle}
         loading={loadingAttr}
         crossOrigin={crossOriginAttr}
         className={className}
